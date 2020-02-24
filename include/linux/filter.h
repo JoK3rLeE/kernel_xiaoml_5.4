@@ -674,7 +674,7 @@ static inline u32 bpf_prog_run_pin_on_cpu(const struct bpf_prog *prog,
 	u32 ret;
 
 	migrate_disable();
-	ret = __BPF_PROG_RUN(prog, ctx, bpf_dispatcher_nop_func);
+	ret = BPF_PROG_RUN(prog, ctx);
 	migrate_enable();
 	return ret;
 }

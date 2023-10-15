@@ -64,6 +64,7 @@
 #include <linux/binfmts.h>
 #include <linux/sched/sysctl.h>
 #include <linux/sched/coredump.h>
+#include <linux/sched/stat.h>
 #include <linux/kexec.h>
 #include <linux/bpf.h>
 #include <linux/mount.h>
@@ -238,10 +239,17 @@ static int proc_dostring_coredump(struct ctl_table *table, int write,
 		void *buffer, size_t *lenp, loff_t *ppos);
 #endif
 static int proc_dopipe_max_size(struct ctl_table *table, int write,
+<<<<<<< HEAD
 		void *buffer, size_t *lenp, loff_t *ppos);
 #ifdef CONFIG_SCHED_WALT
 static int proc_douintvec_minmax_schedhyst(struct ctl_table *table, int write,
 		void *buffer, size_t *lenp, loff_t *ppos);
+=======
+		void __user *buffer, size_t *lenp, loff_t *ppos);
+#ifdef CONFIG_SCHED_WALT
+static int proc_douintvec_minmax_schedhyst(struct ctl_table *table, int write,
+		void __user *buffer, size_t *lenp, loff_t *ppos);
+>>>>>>> 93263c938debe (Revert "sched: walt: Improve the scheduler")
 #endif
 
 #ifdef CONFIG_MAGIC_SYSRQ
@@ -3149,7 +3157,11 @@ static int proc_dostring_coredump(struct ctl_table *table, int write,
 
 #ifdef CONFIG_SCHED_WALT
 static int proc_douintvec_minmax_schedhyst(struct ctl_table *table, int write,
+<<<<<<< HEAD
 				void *buffer, size_t *lenp, loff_t *ppos)
+=======
+				void __user *buffer, size_t *lenp, loff_t *ppos)
+>>>>>>> 93263c938debe (Revert "sched: walt: Improve the scheduler")
 {
 	int ret = proc_douintvec_minmax(table, write, buffer, lenp, ppos);
 
@@ -3160,9 +3172,17 @@ static int proc_douintvec_minmax_schedhyst(struct ctl_table *table, int write,
 }
 #endif
 
+<<<<<<< HEAD
 static int __do_proc_doulongvec_minmax(void *data, struct ctl_table *table,
 		int write, void *buffer, size_t *lenp, loff_t *ppos,
 		unsigned long convmul, unsigned long convdiv)
+=======
+static int __do_proc_doulongvec_minmax(void *data, struct ctl_table *table, int write,
+				     void __user *buffer,
+				     size_t *lenp, loff_t *ppos,
+				     unsigned long convmul,
+				     unsigned long convdiv)
+>>>>>>> 93263c938debe (Revert "sched: walt: Improve the scheduler")
 {
 	unsigned long *i, *min, *max;
 	int vleft, first = 1, err = 0;

@@ -49,7 +49,6 @@ struct rcu_tasks {
 	struct rcu_head **cbs_tail;
 	struct wait_queue_head cbs_wq;
 	raw_spinlock_t cbs_lock;
-	unsigned long gp_start;
 	int gp_state;
 	int gp_sleep;
 	int init_fract;

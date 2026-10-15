@@ -172,7 +172,7 @@
 		enable-active-high;
 		regulator-boot-on;
 		pinctrl-names = "default";
-		pintctrl-0 = <&display_panel_avdd_eldo_default>;
+		pinctrl-0 = <&display_panel_avdd_eldo_default>;
 	};
 
 	sde_dsi: qcom,dsi-display-primary {

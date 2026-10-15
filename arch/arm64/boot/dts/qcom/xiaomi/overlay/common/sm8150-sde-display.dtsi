@@ -117,7 +117,7 @@
 /* The 5.4 DSI driver binds the panel through qcom,dsi-default-panel;
  * the older qcom,dsi-display-list mechanism is not used here. */
 &sde_dsi {
-	qcom,dsi-default-panel = <&dsi_samsung_fhd_ea8076_cmd>;
+	qcom,dsi-default-panel = <&dsi_ss_fhd_ea8076_cmd>;
 };
 
 &sde_dsi1 {

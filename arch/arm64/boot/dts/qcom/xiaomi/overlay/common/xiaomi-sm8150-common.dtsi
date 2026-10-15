@@ -421,9 +421,6 @@
 	};
 };
 
-&dsi_sim_vid_display {
-	qcom,dsi-display-active;
-};
 
 &ufsphy_mem {
 	compatible = "qcom,ufs-phy-qmp-v4";

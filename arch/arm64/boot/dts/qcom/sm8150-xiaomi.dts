@@ -13,6 +13,7 @@
 /dts-v1/;
 
 #include "sm8150.dtsi"
+#include "sm8150-pmic-overlay.dtsi"
 #include "xiaomi/base/sm8150.dtsi"
 
 / {

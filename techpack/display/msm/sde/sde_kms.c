@@ -28,6 +28,7 @@
 #include <linux/dma-buf.h>
 #include <linux/memblock.h>
 #include <linux/suspend.h>
+#include <linux/msm_drm_notify.h>
 #include <drm/drm_atomic_uapi.h>
 #include <drm/drm_probe_helper.h>
 
@@ -965,9 +966,13 @@ static void _sde_kms_drm_check_dpms(struct drm_atomic_state *old_state,
 			notifier_data.refresh_rate = new_fps;
 			notifier_data.id = connector->base.id;
 
-			if (connector->panel)
+			if (connector->panel) {
 				drm_panel_notifier_call_chain(connector->panel,
 							event, &notifier_data);
+				/* Bridge panel blank events to legacy touchscreen clients. */
+				if (connector->connector_type == DRM_MODE_CONNECTOR_DSI)
+					msm_drm_notifier_call_chain(event, &notifier_data);
+			}
 		}
 	}
 

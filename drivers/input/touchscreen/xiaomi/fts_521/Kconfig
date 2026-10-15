@@ -1,0 +1,18 @@
+config TOUCHSCREEN_ST_FTS_V521
+	tristate "ST FTS V521 I2C Touchscreen"
+	depends on I2C && DRM_MSM
+	help
+	  Say Y here if you have an ST FTS V521 I2C touchscreen.
+	  This driver includes Xiaomi gesture and UDFPS integration.
+
+config FTS_FOD_AREA_REPORT
+	bool "FTS FOD area report"
+	depends on TOUCHSCREEN_ST_FTS_V521
+	help
+	  Enable FOD area reporting support.
+
+config TOUCHSCREEN_ST_DEBUG_FS
+	bool "ST FTS debugfs support"
+	depends on TOUCHSCREEN_ST_FTS_V521
+	help
+	  Enable touchscreen debugfs support.

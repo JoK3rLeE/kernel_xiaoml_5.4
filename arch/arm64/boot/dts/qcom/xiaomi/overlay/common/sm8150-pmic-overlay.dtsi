@@ -4,6 +4,7 @@
  */
 
 #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
+#include <dt-bindings/iio/qti_power_supply_iio.h>
 
 /* PMIC GPIO pin control configurations: */
 &pm8150_gpios {
